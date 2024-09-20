@@ -1,3 +1,9 @@
 body {
   background-color: whitesmoke;
 }
+
+h1 {
+  background-color: orangered;
+  color: black;
+  font-size: 48px;
+}
