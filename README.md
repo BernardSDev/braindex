@@ -1,50 +1,28 @@
-# React + TypeScript + Vite
+##Medium Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#Purpose:
+Medium clone is a mini-project that seeks to practice the core concepts I have studied in React.
+This will incorporate other programming concepts and tools like TypeScript, databases, git and best practices.
 
-Currently, two official plugins are available:
+Key Features:
+Creating A Post:
+A writer should be able to create a post by providing post title, body, background or descriptive image, name, profession and image.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Displaying Post:
+A displayed post should contain the writer's name, profession and image. Again it should contain the post title and body, date posted and time read.
+Initial post should be 10 and display less than 10 words of the body
 
-## Expanding the ESLint configuration
+Reading Post Content:
+A user should be able to read the full post by clicking on the post content (anything in it). This view will consist of the post title, avatar, name, minutes of read, date, and the main body.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Tech Stacks To Use
+React with TypeScript
+Postgres
+Tailwind css
+Git
 
-- Configure the top-level `parserOptions` property like this:
+Duration: 2 weeks
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Reward: Going out and buying myself some food.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
