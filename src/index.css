@@ -3,7 +3,11 @@ body {
 }
 
 h1 {
-  background-color: orangered;
+  background-color: navy;
   color: black;
   font-size: 48px;
+}
+
+h1 {
+  background-color: aqua;
 }
