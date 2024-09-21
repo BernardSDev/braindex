@@ -9,7 +9,7 @@ export default function BlogPost() {
   return (
     <div className="">
       {posts.map((post) => (
-        <PostCard post={post} />
+        <PostCard key={post.postId} post={post} />
       ))}
     </div>
   );

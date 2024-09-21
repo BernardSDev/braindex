@@ -1,19 +1,29 @@
 import { IPost } from "../types/Blog.ts";
-import PostTimestamp from "./PostTimestamp.tsx";
-import PostExcerpt from "./PostExcerpt.tsx";
-import PostMeta from "./PostMeta.tsx";
-import PostContent from "./PostContent.tsx";
 import { Link } from "react-router-dom";
 
 function PostCard({ post }: { post: IPost }) {
   return (
-    <div key={post.postId} className="px-8 py-6 mx-4 my-10 bg-blue-200">
-      <Link to={`/article/${post.title}`}>
-        <PostExcerpt post={post} />
-        <PostMeta post={post} />
-        <PostTimestamp post={post} />
-        <PostContent post={post} />
-      </Link>
+    <div className="p-4 bg-[#3a353f] bg-[#505668]">
+        <Link to={`/article/${post.title}`}>
+            <div className="grid grid-cols-2 gap-4 px-2 py-3 bg-blue-1009">
+                <div>
+                    <div className="bg-pink-401 pb-4">
+                        <h1 className="font-bold pb-1 text-[#f1ece1]">{post.title}</h1>
+                        <p className="text-gray-601 text-sm text-gray-400">{post.excerpt}</p>
+                    </div>
+                    <div className="bg-indigo-301 grid" style={{gridTemplateColumns: "50px 1fr"}}>
+                        <img src={post.avatar} alt={post.title} height={35} width={35} className="rounded-full"/>
+                        <div>
+                            <p>
+                                <span className="text-xs font-semibold text-[#c05850] text-[#e2ab7f]">{post.author}</span> . <span className="text-xs">{post.profession}</span>
+                            </p>
+                            <p><span className="text-sm">{post.date}</span> - <span className="text-sm">8mins read</span></p>
+                        </div>
+                    </div>
+                </div>
+                <img src={post.image} alt={post.title} height={100} width={100}/>
+            </div>
+        </Link>
     </div>
   );
 }
