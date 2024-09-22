@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { posts } from "../features/blog/BlogPost";
 import {readingTime} from "../helpers/util.ts";
+import {posts} from "../features/blog/Posts.tsx";
 
 export const PostDetail = () => {
 
@@ -16,10 +16,9 @@ console.log("postDetail", postDetail);
       <div className="p-3">
           <h1 className="my-4 text-4xl leading-10 font-bold">{postDetail?.title}</h1>
           <p className="pb-8">{postDetail?.excerpt}</p>
-
           <img src={postDetail?.avatar} alt={postDetail?.title} width={35} height={55} className="rounded-full" />
           <p>
-              <span className="text-xs font-semibold text-[#c05850] text-[#e2ab7f]">{postDetail?.author}</span> . <span
+              <span className="text-xs font-semibold text-[#e2ab7f]">{postDetail?.author}</span> . <span
               className="text-xs">{postDetail?.profession}</span>
           </p>
 

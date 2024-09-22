@@ -1,9 +1,5 @@
 import PostCard from "../../components/PostCard.tsx";
-import { blogPostsJason } from "../../../Data.ts";
-import { IPost } from "../../types/Blog.ts";
-
-export const posts: IPost[] = JSON.parse(blogPostsJason);
-console.log(posts);
+import {posts} from "./Posts.tsx";
 
 export default function BlogPost() {
   return (
