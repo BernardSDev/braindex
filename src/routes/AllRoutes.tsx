@@ -5,7 +5,7 @@ import BlogPage from "../pages/BlogPage.tsx";
 import AboutPage from "../pages/AboutPage.tsx";
 import ContactPage from "../pages/ContactPage.tsx";
 
-export default function AllRoutes()  {
+export function AllRoutes()  {
   return (
     <Routes>
       <Route path="/" index element={<HomePage />} />
