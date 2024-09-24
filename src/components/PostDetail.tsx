@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import {readingTime} from "../helpers/util.ts";
-import {posts} from "../features/blog/Posts.tsx";
+import {posts} from "../helpers/Posts.tsx";
 
 export function PostDetail () {
 

@@ -1,12 +1,12 @@
-import BlogPost from "../features/blog/BlogPost.tsx";
 import Footer from "../components/Footer.tsx";
 import Header from "../components/Header.tsx";
+import BlogsPage from "./BlogsPage.tsx";
 
 export default function HomePage() {
   return (
     <>
       <Header/>
-      <BlogPost />
+      <BlogsPage />
       <Footer />
     </>
   );

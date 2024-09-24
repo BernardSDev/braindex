@@ -1,17 +1,15 @@
+import { useRef } from 'react';
 import { IPost } from "../types/Blog.ts";
 import { Link } from "react-router-dom";
 import {readingTime, scrollToTop} from "../helpers/util.ts";
 
-import { useRef } from 'react';
-
-
-export default function PostCard({ post }: { post: IPost }) {
+export default function     PostCard({ post }: { post: IPost }) {
   const timeOfRead = readingTime(post.content)
   const elementRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <div onClick={scrollToTop} ref={elementRef} className="p-4 bg-[#505668]">
-        <Link to={`/article/${post.title}`}>
+    <div onClick={scrollToTop} ref={elementRef} className="p-4 bg-black">
+        <Link to={`/blog/${post.title}`}>
             <div className="grid grid-cols-2 gap-4 px-2 py-3 bg-blue-1009">
                 <div>
                     <div className="bg-pink-401 pb-4">
