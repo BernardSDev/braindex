@@ -5,3 +5,11 @@ export function readingTime(text:string | undefined): number  {
     const minutes = words / wordsPerMinute;
     return Math.ceil(minutes);
 }
+
+export function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+
+    });
+}

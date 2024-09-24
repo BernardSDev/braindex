@@ -1,12 +1,16 @@
 import { IPost } from "../types/Blog.ts";
 import { Link } from "react-router-dom";
-import {readingTime} from "../helpers/util.ts";
+import {readingTime, scrollToTop} from "../helpers/util.ts";
 
-function PostCard({ post }: { post: IPost }) {
+import { useRef } from 'react';
+
+
+export default function PostCard({ post }: { post: IPost }) {
   const timeOfRead = readingTime(post.content)
+  const elementRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <div className="p-4 bg-[#505668]">
+    <div onClick={scrollToTop} ref={elementRef} className="p-4 bg-[#505668]">
         <Link to={`/article/${post.title}`}>
             <div className="grid grid-cols-2 gap-4 px-2 py-3 bg-blue-1009">
                 <div>
@@ -30,5 +34,3 @@ function PostCard({ post }: { post: IPost }) {
     </div>
   );
 }
-
-export default PostCard;

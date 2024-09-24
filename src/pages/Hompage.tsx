@@ -1,10 +1,13 @@
 import BlogPost from "../features/blog/BlogPost.tsx";
+import Footer from "../components/Footer.tsx";
+import Header from "../components/Header.tsx";
 
 export default function HomePage() {
   return (
     <>
-      <h1 className="my-4 text-5xl font-bold text-black">Medium</h1>
+      <Header/>
       <BlogPost />
+      <Footer />
     </>
   );
 }
