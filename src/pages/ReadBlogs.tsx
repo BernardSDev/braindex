@@ -1,6 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import {IBlog} from "../interfaces/Blog.ts";
 import {fetchBlogs} from "../services/apiBlogs.ts";
+import moment from 'moment';
+
+
+
 
 export default function ReadBlogs() {
     // FETCHING THE DATA
@@ -22,7 +26,7 @@ export default function ReadBlogs() {
                             <p>excerpt{blog.excerpt}</p>
                             <p>content: {blog.content}</p>
                             <p>image: {blog.image}</p>
-                            <p>time post: {blog.created_at}</p>
+                            <p className="text-sm   text-[#e2ab7f]">time post: {moment(blog.created_at).format('LL')}</p>
                         </div>
                     )
                 })
