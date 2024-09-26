@@ -1,9 +1,9 @@
-import {PostDetail} from "../components/PostDetail.tsx";
+import {BlogDetail} from "../components/BlogDetail.tsx";
 
 export default function BlogPage() {
     return (
         <>
-            <PostDetail />
+            <BlogDetail />
         </>
     )
 }

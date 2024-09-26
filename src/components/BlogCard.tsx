@@ -2,8 +2,10 @@ import { useRef } from 'react';
 import { IBlog } from "../interfaces/Blog.ts";
 import { Link } from "react-router-dom";
 import {readingTime, scrollToTop} from "../helpers/util.ts";
+import moment from 'moment';
 
-export default function PostCard({ blog }: { blog: IBlog }) {
+
+export default function BlogCard({ blog }: { blog: IBlog }) {
   const timeOfRead = readingTime(blog.content)
   const elementRef = useRef<HTMLDivElement | null>(null);
 
@@ -22,7 +24,7 @@ export default function PostCard({ blog }: { blog: IBlog }) {
                             <p>
                                 <span className="text-xs font-semibold  text-[#e2ab7f]">{blog.author}</span> . <span className="text-xs">{blog.profession}</span>
                             </p>
-                            <p><span className="text-sm   text-[#e2ab7f]">{blog.created_at}</span> - <span className="text-sm">{timeOfRead} min read</span></p>
+                            <p><span className="text-sm   text-[#e2ab7f]">{moment(blog.created_at).format('LL')}</span> - <span className="text-sm">{timeOfRead} min read</span></p>
                         </div>
                     </div>
                 </div>
