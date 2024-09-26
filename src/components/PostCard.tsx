@@ -1,9 +1,9 @@
 import { useRef } from 'react';
-import { IPost } from "../types/Blog.ts";
+import { IBlog } from "../interfaces/Blog.ts";
 import { Link } from "react-router-dom";
 import {readingTime, scrollToTop} from "../helpers/util.ts";
 
-export default function     PostCard({ post }: { post: IPost }) {
+export default function     PostCard({ post }: { post: IBlog }) {
   const timeOfRead = readingTime(post.content)
   const elementRef = useRef<HTMLDivElement | null>(null);
 

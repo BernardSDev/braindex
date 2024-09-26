@@ -1,5 +1,5 @@
-export interface IPost {
-    postId: number;
+export interface IBlog {
+    blogId: number;
     author: string;
     profession: string;
     avatar: string;
@@ -7,5 +7,5 @@ export interface IPost {
     excerpt: string;
     content: string;
     image: string;
-    date: string;
+    created_at: string;
 }

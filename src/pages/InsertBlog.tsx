@@ -1,49 +1,48 @@
-import {SubmitHandler, useForm} from "react-hook-form";
+import {useForm} from "react-hook-form";
 import {z} from 'zod';
 import {zodResolver} from "@hookform/resolvers/zod";
 import toast, { Toaster } from 'react-hot-toast';
+import {supabase} from "../services/supabase.ts";
+import { useNavigate } from 'react-router-dom';
 
 
-// FUNCTION TO INSET BLOG INTO DATA
-
-
-const schema = z.object({
+// ZOD VALIDATION SCHEMA
+const blogSchema = z.object({
     author: z.string().min(1, "Input cannot be empty"),
     profession: z.string().min(1, "Input cannot be empty"),
     avatar: z.string().min(1, "Input cannot be empty"),
     title: z.string().min(1, "Input cannot be empty"),
     excerpt: z.string(),
     content: z.string().min(1, "Input cannot be empty"),
-    image: z.string()
+    image: z.string(),
 })
 
-type FormFields = z.infer<typeof schema>;
+type BlogSchema = z.infer<typeof blogSchema>;
 
-export default function MyForm() {
-    const {
-        register,
-        handleSubmit,
-        formState: {errors, isSubmitting} }
-        = useForm<FormFields>({
-        defaultValues: {},
-        resolver: zodResolver(schema),
-        });
+export default function InsertBlog() {
+    const { register, handleSubmit, formState: {errors, isSubmitting} } = useForm<BlogSchema>({
+        resolver: zodResolver(blogSchema),
+    });
 
-    const onSubmit: SubmitHandler<FormFields> = async (data) => {
-        await new Promise((resolve) => setTimeout(resolve, 500));
+    const navigate = useNavigate(); // Initialize the useNavigate hook
 
-        try {
-            toast.success('Form submitted successfully!');
-            console.log('Submitted Data:', data);
-        } catch (error) {
-            toast.error(`Something went wrong!. Error: ${error}`);
+    const onSubmit = async (data:BlogSchema):Promise<void> => {
+        const { error } = await supabase.from('blogs').insert([data]).select();
+
+        if (error) {
+            console.error('Error inserting data:', error.message);
+            alert('Error inserting blog data');
+        } else {
+            toast.success('Blog added successfully!');
+            navigate('/read-blogs'); // Redirect to the success page
+
         }
-    }
+    };
 
     return (
         <>
-            <Toaster position="top-center"/>
-            <h1 className="bg-black text-5xl leading-tight text-white px-4 py-6">New blog</h1>
+            <Toaster position="top-center" />
+            <h1 className="bg-black text-5xl leading-tight text-white px-4 py-6">Insert new blog page</h1>
             <form className="flex flex-col p-10" onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("author",)} type="text" placeholder="Author" className="mb-2"/>
                 {errors.author && (<div className="text-white py-1 bg-red-700">{errors.author.message}</div>)}
