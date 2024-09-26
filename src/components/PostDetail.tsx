@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 import {readingTime} from "../helpers/util.ts";
-import {posts} from "../helpers/Posts.tsx";
+import {blogs} from "../helpers/Blogs.tsx";
 
 export function PostDetail () {
 
     const { title } = useParams();
-    const postDetail = posts.find((post) => post.title.toLowerCase() === title?.toLowerCase());
+    const postDetail = blogs.find((post) => post.title.toLowerCase() === title?.toLowerCase());
     const timeOfRead = readingTime(postDetail?.content)
 
       return (
@@ -17,7 +17,7 @@ export function PostDetail () {
                   <span className="text-xs font-semibold text-[#e2ab7f]">{postDetail?.author}</span> . <span
                   className="text-xs">{postDetail?.profession}</span>
               </p>
-              <p className="text-sm pb-12">Published on <span>{postDetail?.date}</span> - <span
+              <p className="text-sm pb-12">Published on <span>{postDetail?.created_at}</span> - <span
                   className="text-sm">{timeOfRead} min read</span>
               </p>
               <img src={postDetail?.image} alt={postDetail?.title} height={55}/>

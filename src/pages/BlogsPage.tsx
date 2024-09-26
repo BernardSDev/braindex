@@ -1,11 +1,11 @@
 import PostCard from "../components/PostCard.tsx";
-import {posts} from "../helpers/Posts.tsx";
+import {blogs} from "../helpers/Blogs.tsx";
 
 export default function BlogsPage() {
     return (
         <>
-            {posts.map((post) => (
-                <PostCard  key={post.postId} post={post} />
+            {blogs.map((blog) => (
+                <PostCard  key={blog.blogId} blog={blog} />
             ))}
         </>
     );
