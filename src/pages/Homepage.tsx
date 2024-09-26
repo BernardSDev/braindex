@@ -5,7 +5,7 @@ import BlogsPage from "./BlogsPage.tsx";
 export default function HomePage() {
   return (
     <>
-      <Header/>
+      <Header />
       <BlogsPage />
       <Footer />
     </>
