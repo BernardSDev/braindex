@@ -21,7 +21,8 @@ export default function ReadBlogs() {
                         <div key={blog.blogId} className="bg-blue-200 mb-1 px-2 py-4">
                             <h2>author: {blog.author}</h2>
                             <p>profession: {blog.profession}</p>
-                            <p>avatar: {blog.avatar}</p>
+                            <p>avatar:</p>
+                            <img src={blog.avatar} alt="" width={35} height={35} accept />
                             <p>title{blog.title}</p>
                             <p>excerpt{blog.excerpt}</p>
                             <p>content: {blog.content}</p>

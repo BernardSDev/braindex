@@ -6,6 +6,8 @@ import AboutPage from "../pages/AboutPage.tsx";
 import ContactPage from "../pages/ContactPage.tsx";
 import ReadBlogs from "../pages/ReadBlogs.tsx";
 import InsertBlog from "../pages/InsertBlog.tsx";
+import InsertImageDemo from "../pages/InsertImageDemo.tsx";
+import CreateBlog from "../pages/CreateBlog.tsx";
 
 export function AllRoutes()  {
   return (
@@ -18,6 +20,8 @@ export function AllRoutes()  {
       <Route path="/insert-blog/" element={<InsertBlog />} />
       <Route path="/about-us/" element={<AboutPage />} />
       <Route path="/contact-us/" element={<ContactPage />} />
+      <Route path="/insert-demo/" element={<InsertImageDemo />} />
+      <Route path="/create-blog/" element={<CreateBlog />} />
     </Routes>
   );
 }
