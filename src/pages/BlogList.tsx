@@ -1,4 +1,4 @@
-export default function Blogs() {
+export default function BlogList() {
     return (
         <div>
             <h1>All Blogs</h1>
