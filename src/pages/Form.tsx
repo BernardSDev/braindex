@@ -1,17 +1,19 @@
 import {useForm} from "react-hook-form";
-import {FormData, formDefaultValues, formSchema} from "../schemas/formSchemas.ts";
 import {zodResolver} from "@hookform/resolvers/zod";
+import {CreateBlogFormData, CreateBlogFormSchema} from "../schemas/formschemas/CreateBlogFormSchema.ts";
+import {CreateBlogDefaultValuesSchema} from "../schemas/defaultValuesSchema/CreateBlogDefaultValuesSchema.ts";
 import Header from "../components/Header.tsx";
 import Footer from "../components/Footer.tsx";
 
 export default function Form() {
-    const {register, handleSubmit,  formState:{errors}} = useForm<FormData>({
-        resolver: zodResolver(formSchema),
-        defaultValues: formDefaultValues
+    const {register, handleSubmit,  formState:{errors}} = useForm<CreateBlogFormData>({
+        resolver: zodResolver(CreateBlogFormSchema),
+        defaultValues: CreateBlogDefaultValuesSchema
     });
 
-    function onSubmit() {
+    function onSubmit(data: CreateBlogFormData) {
         console.log("something")
+        console.log(data)
     }
 
     return (

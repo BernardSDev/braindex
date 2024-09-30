@@ -3,22 +3,21 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import toast, { Toaster } from 'react-hot-toast';
 import {supabase, supabaseUrl} from "../services/supabase.ts";
 import { useNavigate } from "react-router-dom";
-import { formDefaultValues, FormData, formSchema } from "../schemas/formSchemas.ts";
-
-
+import {CreateBlogFormData, CreateBlogFormSchema} from "../schemas/formschemas/CreateBlogFormSchema.ts";
+import {CreateBlogDefaultValuesSchema} from "../schemas/defaultValuesSchema/CreateBlogDefaultValuesSchema.ts";
 
 export default function InsertImageDemo() {
-    const {register, reset, handleSubmit,  formState:{errors}} = useForm<FormData>({
-        resolver: zodResolver(formSchema), 
-        defaultValues: formDefaultValues 
+    const {register, reset, handleSubmit,  formState:{errors}} = useForm<CreateBlogFormData>({
+        resolver: zodResolver(CreateBlogFormSchema),
+        defaultValues: CreateBlogDefaultValuesSchema
     });
 
     const navigate = useNavigate();
 
-    async function onSubmit(data: FormData) {
+    async function onSubmit(data: CreateBlogFormData) {
         const imageName = data.avatar[0]
         
-        const { data:imageData, error: storageError } = await supabase.storage.from('avatars').upload(`${Math.random()*1000}-${imageName.name}`, imageName, {
+        const { data:imageData } = await supabase.storage.from('avatars').upload(`${Math.random()*1000}-${imageName.name}`, imageName, {
             cacheControl: '3600',
             upsert: false
           })
