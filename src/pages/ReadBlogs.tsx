@@ -22,7 +22,7 @@ export default function ReadBlogs() {
                             <h2>author: {blog.author}</h2>
                             <p>profession: {blog.profession}</p>
                             <p>avatar:</p>
-                            <img src={blog.avatar} alt="" width={35} height={35} accept />
+                            <img src={blog.avatar} alt="" width={35} height={35}  />
                             <p>title{blog.title}</p>
                             <p>excerpt{blog.excerpt}</p>
                             <p>content: {blog.content}</p>
