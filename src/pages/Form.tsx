@@ -1,6 +1,6 @@
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {CreateBlogFormData, CreateBlogFormSchema} from "../schemas/formschemas/CreateBlogFormSchema.ts";
+import {CreateBlogFormData, CreateBlogFormSchema} from "../schemas/formSchemas/CreateBlogFormSchema.ts";
 import {CreateBlogDefaultValuesSchema} from "../schemas/defaultValuesSchema/CreateBlogDefaultValuesSchema.ts";
 import Header from "../components/Header.tsx";
 import Footer from "../components/Footer.tsx";

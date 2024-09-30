@@ -3,7 +3,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import toast, { Toaster } from 'react-hot-toast';
 import {supabase, supabaseUrl} from "../services/supabase.ts";
 import { useNavigate } from "react-router-dom";
-import {CreateBlogFormData, CreateBlogFormSchema} from "../schemas/formschemas/CreateBlogFormSchema.ts";
+import {CreateBlogFormData, CreateBlogFormSchema} from "../schemas/formSchemas/CreateBlogFormSchema.ts";
 import {CreateBlogDefaultValuesSchema} from "../schemas/defaultValuesSchema/CreateBlogDefaultValuesSchema.ts";
 
 export default function InsertImageDemo() {
