@@ -2,6 +2,9 @@ import BlogItem from "../components/BlogItem.tsx";
 import Header from "../components/Header.tsx";
 import Footer from "../components/Footer.tsx";
 import BlogListHeading from "../components/BlogListHeading.tsx";
+import {blogs} from "../../Data.ts";
+import ShowMore from "../components/ShowMore.tsx";
+
 
 export default function BlogList() {
     return (
@@ -9,11 +12,10 @@ export default function BlogList() {
             <Header />
             <BlogListHeading />
             <main className="p-2 bg-orange-100">
-                <BlogItem />
-                <BlogItem />
-                <BlogItem />
+                { blogs.map(blog => ( <BlogItem key={blog.blogId} blog={blog}/> )) }
+                <ShowMore />
             </main>
-            <Footer />
+            <Footer/>
         </div>
     )
 }

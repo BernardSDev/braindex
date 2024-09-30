@@ -1,6 +1,10 @@
 import Header from "../components/Header.tsx";
 import Footer from "../components/Footer.tsx";
 
+// const { title } = useParams();
+// const postDetail = blogs.find((post) => post.title.toLowerCase() === title?.toLowerCase());
+
+
 export default function Blog() {
     return (
         <div>

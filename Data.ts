@@ -1,3 +1,5 @@
+import {IBlog} from "./src/interfaces/Blog.ts";
+
 export const blogPostsJason  = `
 [
   {
@@ -98,18 +100,8 @@ export const blogPostsJason  = `
     "content": "Nullam ut libero semper, commodo dui in, venenatis justo. Duis facilisis ipsum turpis. Sed a augue eget elit tincidunt luctus in eu magna. Pellentesque luctus lorem a aliquet gravida. Donec eget tempus odio, a venenatis odio. Sed dolor leo, auctor ut eleifend ut, imperdiet vitae purus. Nullam mi purus, tristique eget nunc sit amet, pulvinar tincidunt leo. Nulla egestas velit ut risus pretium facilisis.",
     "image": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*K32-s0CCKrKDvstEZPyXww.jpeg",
     "created_at": "2024-09-21"
-  },
-  {
-    "blogId": 10,
-    "author": "Valerie",
-    "profession": "CTO",
-    "avatar": "https://miro.medium.com/v2/resize:fill:88:88/1*N8lVvEktr2Wke-TXUXM7Kw@2x.jpeg",
-    "title": "You Only Need One Thing for Personal Development and Growth",
-    "excerpt": "How to Cultivate Self-Discipline and Achieve Your Goals.",
-    "content": "Nullam ut libero semper, commodo dui in, venenatis justo. Duis facilisis ipsum turpis. Sed a augue eget elit tincidunt luctus in eu magna. Pellentesque luctus lorem a aliquet gravida. Donec eget tempus odio, a venenatis odio. Sed dolor leo, auctor ut eleifend ut, imperdiet vitae purus. Nullam mi purus, tristique eget nunc sit amet, pulvinar tincidunt leo. Nulla egestas velit ut risus pretium facilisis.",
-    "image": "https://miro.medium.com/v2/resize:fit:720/format:webp/0*uBlATgtQrIPxi5wy",
-    "created_at": "2024-09-21"
   }
-  
 ]
 `
+
+export const blogs: IBlog[] = JSON.parse(blogPostsJason) as IBlog[];
