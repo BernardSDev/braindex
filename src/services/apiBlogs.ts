@@ -14,12 +14,15 @@ const uploadImageToSupabase = async (image: File) => {
 };
 
 export async function createBlog(data: CreateBlogFormData) {
-    const {avatar} = data;
+    const {avatar, contentImage} = data;
+
     const imageFullPath = await uploadImageToSupabase(avatar[0]);
+    const contentImageFullPath = await uploadImageToSupabase(contentImage[0]);
 
     const imageFullPathUrl = `${supabaseUrl}/storage/v1/object/public/${imageFullPath}`
+    const contentImagePathUrl = `${supabaseUrl}/storage/v1/object/public/${contentImageFullPath}`
 
-    const { error } = await supabase.from('blogs').insert([{...data, avatar:imageFullPathUrl}]).select();
+    const { error } = await supabase.from('blogs').insert([{...data, avatar:imageFullPathUrl, contentImage:contentImagePathUrl }]).select();
 
     if (error) {
         console.error('Error inserting data:', error.message);
@@ -28,7 +31,6 @@ export async function createBlog(data: CreateBlogFormData) {
 
     toast.success('Blog added successfully!');
 }
-
 
 export async function getBlogs(): Promise<IBlog[]> {
     const { data, error } = await supabase.from("blogs").select("*").order('blogId', { ascending: false });

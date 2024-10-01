@@ -7,5 +7,5 @@ export const BlogSchema = z.object({
     title: z.string(),
     excerpt: z.string(),
     content: z.string(),
-    image: z.string()
+    contentImage: z.instanceof(FileList).refine((files) => files.length === 1, 'Image is required')
 });

@@ -7,9 +7,7 @@ export const CreateBlogFormSchema = z.object({
     title: z.string(),
     excerpt: z.string(),
     content: z.string(),
-    image: z.string()
+    contentImage: z.instanceof(FileList).refine((files) => files.length === 1, 'Image is required')
 });
 
 export type CreateBlogFormData = z.infer<typeof CreateBlogFormSchema>;
-
-

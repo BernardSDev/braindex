@@ -6,6 +6,6 @@ export interface IBlog {
     title: string;
     excerpt: string;
     content: string;
-    image: string;
+    contentImage: string;
     created_at: string;
 }
