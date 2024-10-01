@@ -12,6 +12,8 @@ export default function InsertImageDemo() {
         defaultValues: CreateBlogDefaultValuesSchema
     });
 
+
+
     const navigate = useNavigate();
 
     async function onSubmit(data: CreateBlogFormData) {

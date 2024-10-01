@@ -3,17 +3,31 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {CreateBlogFormData, CreateBlogFormSchema} from "../schemas/formSchemas/CreateBlogFormSchema.ts";
 import {CreateBlogDefaultValuesSchema} from "../schemas/defaultValuesSchema/CreateBlogDefaultValuesSchema.ts";
 import Header from "../components/Header.tsx";
-import Footer from "../components/Footer.tsx";
+import {createBlog} from "../services/apiBlogs.ts";
+import {useMutation, useQueryClient} from "@tanstack/react-query";
 
 export default function Form() {
-    const {register, handleSubmit,  formState:{errors}} = useForm<CreateBlogFormData>({
+    const {register, reset, handleSubmit,  formState:{errors}} = useForm<CreateBlogFormData>({
         resolver: zodResolver(CreateBlogFormSchema),
         defaultValues: CreateBlogDefaultValuesSchema
+    });
+
+    const queryClient = useQueryClient();
+
+    const { mutate, isPending } = useMutation({
+        mutationFn: createBlog,
+        onSuccess: () => {
+            alert("New cabin successfully created");
+            queryClient.invalidateQueries({ queryKey: ["blogs"] });
+            reset();
+        },
+        onError: (err) => alert(err.message),
     });
 
     function onSubmit(data: CreateBlogFormData) {
         console.log("something")
         console.log(data)
+        // mutate(data)
     }
 
     return (
@@ -42,10 +56,9 @@ export default function Form() {
                 {errors.image && (<div className="text-white py-1 bg-red-700">{errors.image.message}</div>)}
 
                 <button type="submit" className="bg-black text-white">
-                    Submit
+                    {isPending ? "Creating..." : "Created"}
                 </button>
             </form>
-            <Footer />
         </div>
     )
 

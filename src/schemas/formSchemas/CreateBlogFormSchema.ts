@@ -10,7 +10,6 @@ export const CreateBlogFormSchema = z.object({
     image: z.string()
 });
 
-// export type FormData = z.infer<typeof formSchema>;
 export type CreateBlogFormData = z.infer<typeof CreateBlogFormSchema>;
 
 

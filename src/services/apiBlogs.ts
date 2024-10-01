@@ -1,9 +1,11 @@
-// FUNCTION TO FETCH DATA FROM DATABASE (SUPABASE)
 import {supabase} from "./supabase.ts";
 import {IBlog} from "../interfaces/Blog.ts";
 
 ////////////////////////////////////////////////////////////////////////////////////
 
+export async function createBlog(newBlog: IBlog): Promise<IBlog> {
+
+}
 
 export async function getBlogs(): Promise<IBlog[]> {
     const { data, error } = await supabase.from("blogs").select("*");
@@ -17,10 +19,7 @@ export async function getBlogs(): Promise<IBlog[]> {
 }
 
 export async function getBlogById(blogId: number): Promise<IBlog[] | null> {
-    const { data, error } = await supabase
-        .from('blogs').select('*')
-        .eq('blogId', blogId)
-        .single();
+    const { data, error } = await supabase.from('blogs').select('*').eq('blogId', blogId).single();
 
     if (error) {
         console.error('Error fetching blog post:', error.message);
