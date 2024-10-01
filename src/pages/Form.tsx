@@ -17,18 +17,14 @@ export default function Form() {
     const { mutate, isPending } = useMutation({
         mutationFn: createBlog,
         onSuccess: () => {
-            alert("New cabin successfully created");
+            alert("New blog successfully created");
             queryClient.invalidateQueries({ queryKey: ["blogs"] });
             reset();
         },
         onError: (err) => alert(err.message),
     });
 
-    function onSubmit(data: CreateBlogFormData) {
-        console.log("something")
-        console.log(data)
-        // mutate(data)
-    }
+    function onSubmit(data: CreateBlogFormData) { mutate(data) }
 
     return (
         <div>
@@ -56,10 +52,9 @@ export default function Form() {
                 {errors.image && (<div className="text-white py-1 bg-red-700">{errors.image.message}</div>)}
 
                 <button type="submit" className="bg-black text-white">
-                    {isPending ? "Creating..." : "Created"}
+                    {isPending ? "Creating..." : "Create"}
                 </button>
             </form>
         </div>
     )
-
 }

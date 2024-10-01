@@ -1,14 +1,37 @@
-import {supabase} from "./supabase.ts";
+import {supabase, supabaseUrl} from "./supabase.ts";
 import {IBlog} from "../interfaces/Blog.ts";
+import {CreateBlogFormData} from "../schemas/formSchemas/CreateBlogFormSchema.ts";
+import toast from "react-hot-toast";
 
-////////////////////////////////////////////////////////////////////////////////////
+const uploadImageToSupabase = async (image: File) => {
+    const imagePath = `public/${Math.random()*1000}-${image.name}`;
 
-export async function createBlog(newBlog: IBlog): Promise<IBlog> {
+    const { data:imageData, error } = await supabase.storage.from('avatars').upload(imagePath, image);
 
+    if (error) { throw new Error(`Failed to upload image: ${error.message}`); }
+
+    return imageData?.fullPath;
+};
+
+export async function createBlog(data: CreateBlogFormData) {
+    const {avatar} = data;
+    const imageFullPath = await uploadImageToSupabase(avatar[0]);
+
+    const imageFullPathUrl = `${supabaseUrl}/storage/v1/object/public/${imageFullPath}`
+
+    const { error } = await supabase.from('blogs').insert([{...data, avatar:imageFullPathUrl}]).select();
+
+    if (error) {
+        console.error('Error inserting data:', error.message);
+        toast.error('Error inserting blog data');
+    }
+
+    toast.success('Blog added successfully!');
 }
 
+
 export async function getBlogs(): Promise<IBlog[]> {
-    const { data, error } = await supabase.from("blogs").select("*");
+    const { data, error } = await supabase.from("blogs").select("*").order('blogId', { ascending: false });
 
     if (error) {
         console.error(error);
@@ -28,17 +51,3 @@ export async function getBlogById(blogId: number): Promise<IBlog[] | null> {
 
     return data;
 }
-
-
-////////////////////////////////////////////////////////////////////////////////////
-
-export const fetchBlogs = async (): Promise<IBlog[]> => {
-    const { data:blogs, error } = await supabase.from('blogs').select('*').order('blogId', { ascending: false });
-
-    if (error) { throw new Error(error.message); }
-
-    return blogs;
-}
-
-
-
