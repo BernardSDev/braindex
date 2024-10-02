@@ -1,12 +1,12 @@
+import { useBlogs } from "../context/BlogsContext.tsx";
 import BlogItem from "../components/BlogItem.tsx";
 import Header from "../components/Header.tsx";
 import Footer from "../components/Footer.tsx";
 import BlogListHeading from "../components/BlogListHeading.tsx";
 import ShowMore from "../components/ShowMore.tsx";
-import { useBlogContext } from "../context/ContextBlog.tsx";
 
 export default function BlogList() {
-    const { blogs } = useBlogContext();
+    const { blogs } = useBlogs();
 
     return (
         <div>

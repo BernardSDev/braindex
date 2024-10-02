@@ -3,6 +3,7 @@ import {IBlog} from "../interfaces/Blog.ts";
 
 export default function BlogItem({blog} : {blog:IBlog}) {
     const {title, excerpt, avatar, author, contentImage } = blog;
+    
     return(
         <section>
             <Link to={`/blogs/${blog.blogId}`}>

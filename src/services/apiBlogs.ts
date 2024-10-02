@@ -5,9 +5,7 @@ import toast from "react-hot-toast";
 
 const uploadImageToSupabase = async (image: File) => {
     const imagePath = `public/${Math.random()*1000}-${image.name}`;
-
     const { data:imageData, error } = await supabase.storage.from('avatars').upload(imagePath, image);
-
     if (error) { throw new Error(`Failed to upload image: ${error.message}`); }
 
     return imageData?.fullPath;
@@ -15,13 +13,10 @@ const uploadImageToSupabase = async (image: File) => {
 
 export async function createBlog(data: CreateBlogFormData) {
     const {avatar, contentImage} = data;
-
     const imageFullPath = await uploadImageToSupabase(avatar[0]);
     const contentImageFullPath = await uploadImageToSupabase(contentImage[0]);
-
     const imageFullPathUrl = `${supabaseUrl}/storage/v1/object/public/${imageFullPath}`
     const contentImagePathUrl = `${supabaseUrl}/storage/v1/object/public/${contentImageFullPath}`
-
     const { error } = await supabase.from('blogs').insert([{...data, avatar:imageFullPathUrl, contentImage:contentImagePathUrl }]).select();
 
     if (error) {

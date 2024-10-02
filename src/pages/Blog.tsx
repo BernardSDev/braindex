@@ -1,13 +1,11 @@
+import { useParams } from "react-router-dom";
+import { useBlogs } from "../context/BlogsContext.tsx";
 import Header from "../components/Header.tsx";
 import Footer from "../components/Footer.tsx";
-import { useParams } from "react-router-dom";
-import { useBlogContext } from "../context/ContextBlog.tsx";
 
 export default function Blog() {
     const { id } = useParams();
-
-    const { blogs } = useBlogContext();
-
+    const { blogs } = useBlogs();
     const blog = blogs?.find((blog) => blog.blogId.toString() === id);
 
     return (

@@ -1,17 +1,19 @@
 import {useForm} from "react-hook-form";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {CreateBlogFormData, CreateBlogFormSchema} from "../schemas/formSchemas/CreateBlogFormSchema.ts";
-import {CreateBlogDefaultValuesSchema} from "../schemas/defaultValuesSchema/CreateBlogDefaultValuesSchema.ts";
-import Header from "../components/Header.tsx";
-import {createBlog} from "../services/apiBlogs.ts";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {useNavigate} from "react-router-dom";
+import {zodResolver} from "@hookform/resolvers/zod";
 import toast from "react-hot-toast";
+
+import {CreateBlogFormData, CreateBlogFormSchema} from "../schemas/formSchemas/CreateBlogFormSchema.ts";
+import {CreateBlogDefaultValuesSchema} from "../schemas/defaultValuesSchema/CreateBlogDefaultValuesSchema.ts";
+import {createBlog} from "../services/apiBlogs.ts";
+import Header from "../components/Header.tsx";
+
 
 export default function Form() {
     const navigate = useNavigate();
 
-    const {register, reset, handleSubmit,  formState:{errors}} = useForm<CreateBlogFormData>({
+    const { register, reset, handleSubmit,  formState:{errors}} = useForm<CreateBlogFormData>({
         resolver: zodResolver(CreateBlogFormSchema),
         defaultValues: CreateBlogDefaultValuesSchema
     });
@@ -25,12 +27,11 @@ export default function Form() {
             queryClient.invalidateQueries({ queryKey: ["blogs"] });
             reset();
             navigate("/blogs");
-
         },
         onError: (err) => toast.error(err.message),
     });
 
-    function onSubmit(data: CreateBlogFormData) {
+    function onSubmit( data: CreateBlogFormData ) {
         mutate(data)
     }
 
