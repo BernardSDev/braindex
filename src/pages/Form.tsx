@@ -6,6 +6,7 @@ import Header from "../components/Header.tsx";
 import {createBlog} from "../services/apiBlogs.ts";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {useNavigate} from "react-router-dom";
+import toast from "react-hot-toast";
 
 export default function Form() {
     const navigate = useNavigate();
@@ -20,13 +21,13 @@ export default function Form() {
     const { mutate, isPending } = useMutation({
         mutationFn: createBlog,
         onSuccess: () => {
-            alert("New blog successfully created");
+            toast.success("New blog successfully created");
             queryClient.invalidateQueries({ queryKey: ["blogs"] });
             reset();
             navigate("/blogs");
 
         },
-        onError: (err) => alert(err.message),
+        onError: (err) => toast.error(err.message),
     });
 
     function onSubmit(data: CreateBlogFormData) {

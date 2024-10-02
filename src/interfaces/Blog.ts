@@ -1,6 +1,5 @@
 export interface IBlog {
-  blogs: {
-    blogId: number;
+    blogId: string;
     author: string;
     profession: string;
     avatar: string;
@@ -9,5 +8,4 @@ export interface IBlog {
     content: string;
     contentImage: string;
     created_at: string;
-  };
-}
+};
