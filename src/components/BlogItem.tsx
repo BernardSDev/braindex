@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import moment from "moment/moment";
 import {IBlog} from "../interfaces/Blog.ts";
 
 export default function BlogItem({blog} : {blog:IBlog}) {
@@ -12,7 +13,7 @@ export default function BlogItem({blog} : {blog:IBlog}) {
                     <p>{excerpt}</p>
                     <img src={avatar} alt={avatar} width={55} height={55}/>
                     <h2>{author}</h2>
-                    <p><span>September 29, 24</span> - <span>3 min read</span></p>
+                    <p><span>{moment(blog?.created_at).format('LL')}</span> - <span>3 min read</span></p>
                     <img src={contentImage} alt={contentImage} width={700} height={55}/>
                 </div>
             </Link>

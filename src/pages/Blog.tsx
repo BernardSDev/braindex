@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import moment from 'moment';
 import { useBlogs } from "../context/BlogsContext.tsx";
 import Header from "../components/Header.tsx";
 import Footer from "../components/Footer.tsx";
@@ -16,7 +17,7 @@ export default function Blog() {
                 <h1>{blog?.excerpt}</h1>
                 <img src={blog?.avatar} alt={blog?.avatar} width={35} height={35}/>
                 <p>{blog?.author}</p>
-                <p>Published on <span>September 29, 24</span> - <span>3 min read</span></p>
+                <p>Published on <span>{moment(blog?.created_at).format('LL')}</span> - <span>3 min read</span></p>
                 <img src={blog?.contentImage} alt={blog?.contentImage} />
                 <div>{blog?.content}</div>
             </main>
