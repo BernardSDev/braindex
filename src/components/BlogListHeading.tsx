@@ -1,5 +1,5 @@
 export default function BlogListHeading() {
     return (
-        <h1 className="bg-indigo-400 text-cyan-50 p-4">Trending articles</h1>
+        <div className="text-4xl pt-12 pb-12 font-semibold tracking-tight capitalize text-center">Trending articles</div>
     )
 }

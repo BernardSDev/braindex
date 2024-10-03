@@ -7,15 +7,24 @@ export default function BlogItem({blog} : {blog:IBlog}) {
     const {title, excerpt, avatar, author, content, contentImage } = blog;
     
     return(
-        <section>
+        <section className="border-y border-b-gray-300 py-8 px-4">
             <Link to={`/blogs/${blog.blogId}`}>
-                <div className="bg-blue-500 dark:bg-blue-900 text-white mb-2 px-4 py-6">
-                    <h1>{title}</h1>
-                    <p>{excerpt}</p>
-                    <img src={avatar} alt={avatar} width={55} height={55}/>
-                    <h2>{author}</h2>
-                    <p><span>{moment(blog?.created_at).format('LL')}</span> - <span>{readingTime(content)} min read</span></p>
-                    <img src={contentImage} alt={contentImage} width={700} height={55}/>
+                <div className="grid grid-cols-3 gap-2 items-center">
+                    <div className="col-span-2">
+                        <div className="text-2xl font-semibold leading-tight tracking-tighter capitalize mb-2">{title}</div>
+                        <p className="mb-4">{excerpt}</p>
+                        <div className="flex gap-4">
+                            <img src={avatar} alt={avatar} width={55} height={55} className="w-8 h-8 object-cover rounded-full"/>
+                            <div className="text-sm">
+                                <div className="text-sm capitalize font-semibold">{author}</div>
+                                <p className="text-xs text-gray-500">
+                                    <span>{moment(blog?.created_at).format('LL')}</span> - <span>{readingTime(content)} min read</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <img src={contentImage} alt={contentImage} width={700} height={40}
+                         className="w-full h-28"/>
                 </div>
             </Link>
         </section>
