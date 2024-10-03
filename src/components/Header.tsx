@@ -9,7 +9,6 @@ export default function Header() {
             <nav >
                 <ul className="flex items-center justify-between gap-2 text-black">
                     <li><NavLink to="/">Home</NavLink></li>
-                    <li><NavLink to="/blogs">Blogs</NavLink></li>
                     <li><NavLink to="/form">Add new</NavLink></li>
                 </ul>
             </nav>

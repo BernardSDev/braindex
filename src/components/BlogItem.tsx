@@ -3,12 +3,12 @@ import moment from "moment/moment";
 import {IBlog} from "../interfaces/Blog.ts";
 import {readingTime} from "../helpers/util.ts";
 
-export default function BlogItem({blog} : {blog:IBlog}) {
-    const {title, excerpt, avatar, author, content, contentImage } = blog;
+export default function BlogItem( {blog} : {blog:IBlog} ) {
+    const { title, excerpt, avatar, author, content, contentImage} = blog;
     
     return(
         <section className="border-y border-b-gray-300 py-8 px-4">
-            <Link to={`/blogs/${blog.blogId}`}>
+            <Link to={`/blog/${blog.blogId}`}>
                 <div className="grid grid-cols-3 gap-2 items-center">
                     <div className="col-span-2">
                         <div className="text-2xl font-semibold leading-tight tracking-tighter capitalize mb-2">{title}</div>
@@ -23,8 +23,7 @@ export default function BlogItem({blog} : {blog:IBlog}) {
                             </div>
                         </div>
                     </div>
-                    <img src={contentImage} alt={contentImage} width={700} height={40}
-                         className="w-full h-28"/>
+                    <img src={contentImage} alt={contentImage} width={700} height={40} className="w-full h-28"/>
                 </div>
             </Link>
         </section>
