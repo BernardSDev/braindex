@@ -26,7 +26,7 @@ export default function Form() {
             toast.success("New blog successfully created");
             queryClient.invalidateQueries({ queryKey: ["blogs"] });
             reset();
-            navigate("/blogs");
+            navigate("/");
         },
         onError: (err) => toast.error(err.message),
     });
@@ -38,29 +38,60 @@ export default function Form() {
     return (
         <div>
             <Header />
-            <form className="flex flex-col p-10" onSubmit={handleSubmit(onSubmit)} >
-                <input {...register("author",)} type="text" placeholder="Author" className="mb-2"/>
-                {errors.author && (<div className="text-white py-1 bg-red-700">{errors.author.message}</div>)}
+            <form className="bg-green-500x p-4 grid grid-cols-1 gap-4" onSubmit={handleSubmit(onSubmit)}>
+                <div className="md:w-1/3">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="author">Author</label>
+                    <input {...register("author",)} id="author" type="text" placeholder="Author"
+                           className="bg-blue-50 appearance-none rounded w-full py-2 px-4 text-gray-700 leading-tight focus:border focus:outline-none focus:bg-white focus:border-purple-500"/>
+                    {errors.author && (<div className="text-white py-1 bg-red-700">{errors.author.message}</div>)}
+                </div>
 
-                <input {...register("profession",)} type="text" placeholder="Profession"/>
-                {errors.profession && (<div className="text-white py-1 bg-red-700">{errors.profession.message}</div>)}
+                <div className="md:w-1/3">
+                    <label className="block text-gray-700 text-sm font-bold mb-2"
+                           htmlFor="profession">Profession</label>
+                    <input {...register("profession",)} id="profession" type="text" placeholder="Profession"
+                           className="bg-blue-50 appearance-none rounded w-full py-2 px-4 text-gray-700 leading-tight focus:border focus:outline-none focus:bg-white focus:border-purple-500"/>
+                    {errors.profession && (
+                        <div className="text-white py-1 bg-red-700">{errors.profession.message}</div>)}
+                </div>
 
-                <input {...register("avatar",)} accept="image/*" type="file" placeholder="Avatar"/>
-                {errors.avatar && (<div className="text-white py-1 bg-red-700">{errors.avatar.message}</div>)}
+                <div className="md:w-1/3">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">Title</label>
+                    <input {...register("title",)} id="title" type="text" placeholder="Title"
+                           className="bg-blue-50 appearance-none rounded w-full py-2 px-4 text-gray-700 leading-tight focus:border focus:outline-none focus:bg-white focus:border-purple-500"/>
+                    {errors.title && (<div className="text-white py-1 bg-red-700">{errors.title.message}</div>)}
+                </div>
 
-                <input {...register("title",)} type="text" placeholder="Title"/>
-                {errors.title && (<div className="text-white py-1 bg-red-700">{errors.title.message}</div>)}
+                <div className="md:w-1/3">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="excerpt">Excerpt</label>
+                    <input {...register("excerpt",)} id="excerpt" type="text" placeholder="Excerpt"
+                           className="bg-blue-50 appearance-none rounded w-full py-2 px-4 text-gray-700 leading-tight focus:border focus:outline-none focus:bg-white focus:border-purple-500"/>
+                    {errors.excerpt && (<div className="text-white py-1 bg-red-700">{errors.excerpt.message}</div>)}
+                </div>
 
-                <input {...register("excerpt",)} type="text" placeholder="Excerpt"/>
-                {errors.excerpt && (<div className="text-white py-1 bg-red-700">{errors.excerpt.message}</div>)}
+                <div className="md:w-1/3">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="content">Content</label>
+                    <input {...register("content",)} id="content" type="text" placeholder="Content"
+                           className="bg-blue-50 appearance-none rounded w-full py-2 px-4 text-gray-700 leading-tight focus:border focus:outline-none focus:bg-white focus:border-purple-500"/>
+                    {errors.content && (<div className="text-white py-1 bg-red-700">{errors.content.message}</div>)}
+                </div>
 
-                <input {...register("content",)} type="text" placeholder="Content"/>
-                {errors.content && (<div className="text-white py-1 bg-red-700">{errors.content.message}</div>)}
+                    <div className="md:w-1/3">
+                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="avatar">Avatar</label>
+                        <input {...register("avatar",)} id="avatar" accept="image/*" type="file" placeholder="Avatar"
+                               className="bg-blue-50 appearance-none rounded w-full py-2 px-4 text-gray-700 leading-tight focus:border focus:outline-none focus:bg-white focus:border-purple-500"/>
+                        {errors.avatar && (<div className="text-white py-1 bg-red-700">{errors.avatar.message}</div>)}
+                    </div>
+                    <div className="md:w-1/3">
+                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="contentImage">Content
+                            image</label>
+                        <input {...register("contentImage",)} id="contentImage" accept="image/*" type="file"
+                               placeholder="Content image" className="bg-blue-50 appearance-none rounded w-full py-2 px-4 text-gray-700 leading-tight focus:border focus:outline-none focus:bg-white focus:border-purple-500" />
+                        {errors.contentImage && (<div className="text-white py-1 bg-red-700">{errors.contentImage.message}</div>)}
+                    </div>
 
-                <input {...register("contentImage",)} accept="image/*" type="file" placeholder="Content Image"/>
-                {errors.contentImage && (<div className="text-white py-1 bg-red-700">{errors.contentImage.message}</div>)}
-
-                <button type="submit" className="bg-black text-white">
+                    <div className="border-t-2 mt-6 mb-2 border-t-gray-300"></div>
+                <button type="submit" className="bg-black py-3 text-white">
                     {isPending ? "Creating..." : "Create"}
                 </button>
             </form>
