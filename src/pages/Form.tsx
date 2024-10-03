@@ -2,7 +2,7 @@ import {useForm} from "react-hook-form";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {useNavigate} from "react-router-dom";
 import {zodResolver} from "@hookform/resolvers/zod";
-import toast from "react-hot-toast";
+import toast, {Toaster} from "react-hot-toast";
 
 import {CreateBlogFormData, CreateBlogFormSchema} from "../schemas/formSchemas/CreateBlogFormSchema.ts";
 import {CreateBlogDefaultValuesSchema} from "../schemas/defaultValuesSchema/CreateBlogDefaultValuesSchema.ts";
@@ -23,10 +23,9 @@ export default function Form() {
     const { mutate, isPending:isCreating } = useMutation({
         mutationFn: createBlog,
         onSuccess: () => {
-            toast.success("New blog successfully created");
             queryClient.invalidateQueries({ queryKey: ["blogs"] });
             reset();
-            navigate("/");
+            setTimeout(() => { navigate("/"); }, 2000);
         },
         onError: (err) => toast.error(err.message),
     });
@@ -37,6 +36,7 @@ export default function Form() {
 
     return (
         <div>
+            <Toaster position="top-right" />
             <Header />
             <form className="bg-green-500x p-4 grid grid-cols-1 gap-4" onSubmit={handleSubmit(onSubmit)}>
                 <div className="md:w-1/3">
