@@ -1,8 +1,9 @@
 export default function HeroSection() {
     return (
-        <section className="hero">
-            <div className="featured-post">
-                <img src="/src/assets/images/hero-banner.jpg" alt="Featured Post"/>
+        <section className="hero mb-6">
+            <div className="hero-banner">
+                <img src="/src/assets/images/hero-banner.jpg" alt="Featured Post"
+                     className="w-full h-[30vh] md:h-[50vh] object-cover"/>
             </div>
         </section>
     )
