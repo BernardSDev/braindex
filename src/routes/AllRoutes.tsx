@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import HomePage from "../pages/Homepage.tsx";
-import BlogList from "../pages/BlogList.tsx";
+import BlogList from "../components/BlogList.tsx";
 import Blog from "../pages/Blog.tsx";
 import Form from "../pages/Form.tsx";
 
