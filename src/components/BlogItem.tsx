@@ -13,14 +13,14 @@ export default function BlogItem( {blog} : {blog:IBlog} ) {
             <Link to={`/blog/${blog.blogId}`} onClick={scrollToTop}>
                 <div className="grid grid-cols-3 gap-3 items-start">
                     <div className="col-span-2">
-                        <div className="text-2xl font-semibold leading-tight tracking-tighter capitalize mb-2">{title}</div>
-                        <p className="mb-4">{excerpt}</p>
+                        <div className="text-2xl text-gray-750 font-semibold leading-tight tracking-tighter capitalize mb-2">{title}</div>
+                        <p className="mb-4 text-gray-500">{excerpt}</p>
                         <div className="flex gap-4">
                             <img src={avatar} alt={avatar} width={55} height={55} className="w-8 h-8 object-cover rounded-full"/>
                             <div className="text-sm">
-                                <div className="text-sm capitalize font-semibold">{author}</div>
-                                <p className="text-xs text-gray-500">
-                                    <span>{moment(blog?.created_at).format('LL')}</span> - <span>{readingTime(content)} min read</span>
+                                <div className="text-sm text-gray-900 capitalize font-semibold">{author}</div>
+                                <p className="text-xs text-gray-400">
+                                    <span className="text-gray-450">{moment(blog?.created_at).format('LL')}</span> - <span className="text-gray-400">{readingTime(content)} min read</span>
                                 </p>
                             </div>
                         </div>
