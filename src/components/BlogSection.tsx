@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import {IBlog} from "../interfaces/Blog.ts";
 import BlogSummary from "./BlogSummary.tsx";
-import ShowMore from "./ShowMore.tsx";
 
 export default function BlogSection({ blogs } : { blogs:IBlog[] | undefined }) {
     return (
@@ -20,8 +19,6 @@ export default function BlogSection({ blogs } : { blogs:IBlog[] | undefined }) {
                     }
                 </div>
             </div>
-
-            <ShowMore/>
         </section>
     )
 }
