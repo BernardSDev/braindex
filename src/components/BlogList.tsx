@@ -20,9 +20,11 @@ export default function BlogList() {
         }, 1000);
     };
 
+
     return (
             <main className="border-t-gray-300x container mb-10 mx-auto px-2">
                 <BlogListHeading />
+               <div className="text-right font-semibold pb-2 pr-2"> {blogs?.length} blogs</div>
                 <div className="bg-red-500x grid grid-cols-1 gap-10">
                     { displayBlogs?.map(blog => (<BlogItem key={blog.blogId} blog={blog} />)) }
                     <button onClick={handleLoadMore} disabled={loading} className="px-4 py-2 text-black mt-4">
