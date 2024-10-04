@@ -30,7 +30,7 @@ export default function BlogList() {
                     <button className="text-gray-600"> Nothing to show </button> :
                     (
                         <div className="flex justify-between items-center">
-                            <button onClick={handleLoadMore} disabled={loading} className={`${!loading ? 'text-gray-900' : 'text-gray-400'} text-base  ml-[45%]`} >
+                            <button onClick={handleLoadMore} disabled={loading} className={`${!loading ? 'text-gray-900' : 'text-gray-400'} text-base  ml-[40%]`} >
                                 {loading ? 'Loading...' : 'Load More'}
                             </button>
                             <div className="text-xs">
