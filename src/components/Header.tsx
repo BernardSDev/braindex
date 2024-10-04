@@ -13,7 +13,7 @@ export default function Header() {
                     <li className="flex">
                         <NavLink to="/form">
                         <span className="flex gap-0.5">
-                            <img src="/public/images/write.svg" width={35} height={35} className="text-red-600 w-6 h-6 "  alt="write"/>write
+                            <img src="/images/write.svg" width={35} height={35} className="text-red-600 w-6 h-6 "  alt="write"/>write
                         </span>
                     </NavLink>
                     </li>
