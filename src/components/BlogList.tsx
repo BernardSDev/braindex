@@ -23,7 +23,7 @@ export default function BlogList() {
             <main className="border-t-gray-300x container mb-10 mx-auto px-2">
                 <BlogListHeading />
                <div className="text-right font-semibold pb-2 pr-2">
-                   Articles | <span className="text-gray-400">{blogs?.length}</span>/<span className="text-gray-800">{blogsSlice!.length}</span>
+                   Articles <span className="text-gray-400">{blogs?.length}</span> | <span className="text-gray-800">{blogsSlice!.length}</span>
                </div>
                 <div className="bg-red-500x grid grid-cols-1 gap-10">
                     { blogsSlice?.map(blog => (<BlogItem key={blog.blogId} blog={blog} />)) }
