@@ -35,10 +35,10 @@ export default function Form() {
     }
 
     return (
-        <div>
+        <div className="">
             <Toaster position="top-right" />
             <Header />
-            <form className="bg-green-500x p-4 grid grid-cols-1 gap-4" onSubmit={handleSubmit(onSubmit)}>
+            <form className="bg-green-500x container mx-auto p-4 grid grid-cols-1 gap-4" onSubmit={handleSubmit(onSubmit)}>
                 <div className="md:w-1/3">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="author">Author</label>
                     <input {...register("author",)} disabled={isCreating} id="author" type="text" placeholder="Author"

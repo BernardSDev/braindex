@@ -11,7 +11,7 @@ export default function BlogItem( {blog} : {blog:IBlog} ) {
     return(
         <section className="border-y border-b-gray-300 py-8 px-4">
             <Link to={`/blog/${blog.blogId}`} onClick={scrollToTop}>
-                <div className="grid grid-cols-3 gap-2 items-center">
+                <div className="grid grid-cols-3 gap-3 items-start">
                     <div className="col-span-2">
                         <div className="text-2xl font-semibold leading-tight tracking-tighter capitalize mb-2">{title}</div>
                         <p className="mb-4">{excerpt}</p>
@@ -25,7 +25,7 @@ export default function BlogItem( {blog} : {blog:IBlog} ) {
                             </div>
                         </div>
                     </div>
-                    <img src={contentImage} alt={contentImage} width={700} height={40} className="w-full h-28"/>
+                    <img src={contentImage} alt={contentImage} width={700} height={40} className="w-28 h-24 object-fit"/>
                 </div>
             </Link>
         </section>
