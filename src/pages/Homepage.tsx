@@ -8,15 +8,14 @@ import Spinner from "../components/Spinner.tsx";
 export default function HomePage() {
   const { isLoading } = useBlogs();
 
-
   if (isLoading) return <Spinner />;
 
   return (
-    <div>
-      <Header />
-      <HeroSection />
-        <BlogList />
-      <Footer />
-    </div>
+      <div>
+          <Header/>
+          <HeroSection/>
+          <BlogList/>
+          <Footer/>
+      </div>
   );
 }
