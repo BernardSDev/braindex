@@ -27,10 +27,10 @@ export default function BlogList() {
             <div className="bg-red-500x grid grid-cols-1 gap-10">
                 {blogsSlice?.map(blog => (<BlogItem key={blog.blogId} blog={blog}/>))}
                 { blogsSlice!.length >= blogs!.length ?
-                    <button> Nothing to show </button> :
+                    <button className="text-gray-600"> Nothing to show </button> :
                     (
-                        <div className="flex justify-between">
-                            <button onClick={handleLoadMore} disabled={loading} className="text-xs ml-52" >
+                        <div className="flex justify-between items-center">
+                            <button onClick={handleLoadMore} disabled={loading} className={`${!loading ? 'text-gray-900' : 'text-gray-400'} text-base  ml-[45%]`} >
                                 {loading ? 'Loading...' : 'Load More'}
                             </button>
                             <div className="text-xs">
