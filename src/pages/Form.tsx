@@ -9,7 +9,6 @@ import {CreateBlogDefaultValuesSchema} from "../schemas/defaultValuesSchema/Crea
 import {createBlog} from "../services/apiBlogs.ts";
 import Header from "../components/Header.tsx";
 
-
 export default function Form() {
     const navigate = useNavigate();
 
