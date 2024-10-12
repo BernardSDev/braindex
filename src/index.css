@@ -8,3 +8,6 @@ body {
     font-family: "Bai Jamjuree", sans-serif;
 }
 
+.tox .tox-statusbar__branding {
+    display: none;
+}
