@@ -5,6 +5,7 @@ import Header from "../components/Header.tsx";
 import Footer from "../components/Footer.tsx";
 import {readingTime} from "../helpers/util.ts";
 
+
 import DOMPurify from 'dompurify';
 
 
@@ -28,8 +29,8 @@ export default function Blog() {
                         </div>
                     </div>
                     <img src={blog?.contentImage} alt={blog?.contentImage} className="mb-12 h-[30vh] md:h-[55vh] w-full"/>
-                    <div className="text-xl  text-gray-500 leading-loose">{blog?.content}</div>
-                    <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog?.content) }} />
+                    {/* <div className="text-xl text-gray-500 leading-loose">{blog?.content}</div> */}
+                    <div className='bg-red-900' dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog?.content) }} />   
                 </main>
             </div>
             <Footer/>
