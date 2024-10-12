@@ -25,7 +25,8 @@ export default function Blog() {
                         </div>
                     </div>
                     <img src={blog?.contentImage} alt={blog?.contentImage} className="mb-12 h-[30vh] md:h-[55vh] w-full"/>
-                    <div className="text-xl  text-gray-500 leading-loose">{blog?.content}</div>
+                    {/* <div className="text-xl  text-gray-500 leading-loose">{blog?.content}</div> */}
+                    <div dangerouslySetInnerHTML={{ __html: blog?.content }} />
                 </main>
             </div>
             <Footer/>
