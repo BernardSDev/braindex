@@ -5,8 +5,6 @@ import Header from "../components/Header.tsx";
 import Footer from "../components/Footer.tsx";
 import {readingTime} from "../helpers/util.ts";
 
-import { IBlog } from '../interfaces/Blog.ts';
-
 import DOMPurify from 'dompurify';
 
 
