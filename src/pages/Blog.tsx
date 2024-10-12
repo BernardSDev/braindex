@@ -18,7 +18,6 @@ export default function Blog() {
     const blog = blogs?.find((blog) => blog.blogId.toString() === id);
 
     const content = blog?.content ?? "";
-    // const content = blog.content:IBlog | undefined
 
     return (
         <>
@@ -36,7 +35,7 @@ export default function Blog() {
                     </div>
                     <img src={blog?.contentImage} alt={blog?.contentImage} className="mb-12 h-[30vh] md:h-[55vh] w-full"/>
                     {/* <div className="text-xl text-gray-500 leading-loose">{blog?.content}</div> */}
-                    <div className='bg-red-900' dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }} />   
+                    <div className='' dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }} />   
                 </main>
             </div>
             <Footer/>
