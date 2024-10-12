@@ -81,24 +81,20 @@ export default function Form() {
 
                     <div className="mb-5">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="content">Content</label>
-
-                        <Editor apiKey = '3fyqjs703kexnagnbxmh419t483h7kn83gbrb2nqppt37jc7'
-                            value={content}
-                            onEditorChange={(newValue) => {
-                                // Update form value when TinyMCE content changes
-                                setValue('content', newValue, { shouldValidate: true });
-                            }}
-                            init={{
-                                height: 300,
-                                menubar: false,
-                                plugins: [ 'advlist autolink lists link image charmap print preview anchor, searchreplace visualblocks code fullscreen, insertdatetime media table paste code help wordcount', ],
-                                toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
-                            }}
-                            />
-                                    
-                        {/* <textarea {...register("content",)} rows={10} cols={50} disabled={isCreating} id="content"
-                                  placeholder="Content"
-                                  className={`${isCreating ? 'bg-gray-400' : 'bg-blue-50'} appearance-none rounded w-full py-6 px-4 text-gray-700 leading-tight focus:border focus:outline-none focus:bg-white focus:border-purple-500`}/> */}
+                            <Editor apiKey = '3fyqjs703kexnagnbxmh419t483h7kn83gbrb2nqppt37jc7'
+                                value={content}
+                                onEditorChange={(newValue) => {
+                                    // Update form value when TinyMCE content changes
+                                    setValue('content', newValue, { shouldValidate: true });
+                                }}
+                                init={{
+                                    placeholder: "Content",
+                                    height: 300,
+                                    menubar: false,
+                                    plugins: [ 'advlist autolink lists link image charmap print preview anchor, searchreplace visualblocks code fullscreen, insertdatetime media table paste code help wordcount', ],
+                                    toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+                                }}
+                                />        
                         {errors.content && (<div className="text-white py-1 bg-red-700">{errors.content.message}</div>)}
                     </div>
 
