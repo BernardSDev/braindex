@@ -27,7 +27,7 @@ export default function Blog() {
                         </div>
                     </div>
                     <img src={blog?.contentImage} alt={blog?.contentImage} className="mb-12 h-[30vh] md:h-[55vh] w-full"/>
-                    <div className="text-xl text-[#6D6D6D] leading-relaxed" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog?.content ?? "") }} />   
+                    <div className="text-xl text-[#6D6D6D] leading-loose" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog?.content ?? "") }} />   
                 </main>
             </div>
             <Footer/>
