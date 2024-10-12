@@ -17,7 +17,7 @@ export default function Blog() {
             <Header />
             <div className="bg-red-900x py-10 container border-t border-t-black mx-auto">
                 <main className="bg-red-200x px-6">
-                    <div className="text-xl leading-snug text-black mb-10 font-semibold tracking-tighter capitalize md:text-center">{blog?.title}</div>
+                    <div className="text-2xl leading-snug text-black mb-10 font-semibold tracking-tighter capitalize md:text-center">{blog?.title}</div>
                     <div className="text-lg md:text-center mb-8">{blog?.excerpt}</div>
                     <div className="bg-orange-800x mb-8 flex gap-x-6">
                         <img src={blog?.avatar} alt={blog?.avatar} width={35} height={35} className="w-12 h-12 object-cover rounded-full"/>
@@ -27,7 +27,7 @@ export default function Blog() {
                         </div>
                     </div>
                     <img src={blog?.contentImage} alt={blog?.contentImage} className="mb-12 h-[30vh] md:h-[55vh] w-full"/>
-                    <div className="text-lg text-[#6D6D6D] leading-loose" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog?.content ?? "") }} />   
+                    <div className="text-lg text-[#6D6D6D] leading-normal" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog?.content ?? "") }} />   
                 </main>
             </div>
             <Footer/>
