@@ -13,8 +13,8 @@ export default function BlogSummary( {blog} : {blog:IBlog} ) {
             <Link to={`/blog/${blog.blogId}`} onClick={scrollToTop}>
                 <div className="grid grid-cols-3 gap-3 items-start">
                     <div className="col-span-2">
-                        <div className="text-base text-gray-750 font-semibold leading-tight tracking-tighter capitalize mb-2">{title}</div>
-                        <p className="mb-4 text-sm text-gray-500">{excerpt}</p>
+                        <div className="text-lg text-gray-750 font-semibold leading-tight tracking-tighter capitalize mb-2">{title}</div>
+                        <p className="mb-4 text-base text-gray-500">{excerpt}</p>
                         <div className="flex gap-4">
                             <img src={avatar} alt={avatar} width={55} height={55} className="w-8 h-8 object-cover rounded-full"/>
                             <div className="text-sm">
