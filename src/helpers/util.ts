@@ -12,3 +12,9 @@ export function scrollToTop() {
         behavior: "smooth",
     });
 }
+
+export const truncateString = (str: string, numOfWords: number): string => {
+    const words = str.trim().split(/\s+/);
+    if (words.length > numOfWords) return words.slice(0, numOfWords).join(" ") + "...";
+    return str;
+}

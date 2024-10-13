@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import moment from "moment/moment";
 import {IBlog} from "../interfaces/Blog.ts";
-import {readingTime, scrollToTop} from "../helpers/util.ts";
+import {readingTime, scrollToTop, truncateString} from "../helpers/util.ts";
+
+
+
 
 
 
@@ -13,8 +16,8 @@ export default function BlogSummary( {blog} : {blog:IBlog} ) {
             <Link to={`/blog/${blog.blogId}`} onClick={scrollToTop}>
                 <div className="grid grid-cols-3 gap-3 items-start">
                     <div className="col-span-2">
-                        <div className="text-2xl leading-snug text-gray-750 font-semibold tracking-tighter capitalize mb-2">{title}</div>
-                        <p className="mb-4 text-xl text-gray-500">{excerpt}</p>
+                        <div className="text-2xl leading-snug text-gray-750 font-semibold tracking-tighter capitalize mb-2">{truncateString(title, 10)}</div>
+                        <p className="mb-4 text-xl text-gray-500">{truncateString(excerpt, 15)}</p>
                         <div className="flex gap-4">
                             <img src={avatar} alt={avatar} width={55} height={55} className="w-8 h-8 object-cover rounded-full"/>
                             <div className="">
